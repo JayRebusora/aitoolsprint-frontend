@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import PostCard from "../components/PostCard.jsx";
+import API_BASE from "../apiConfig";
 
 function HomePage() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/posts")
+    fetch(`${API_BASE}/api/posts`)
       .then((res) => res.json())
       .then((data) => setPosts(data))
       .catch((err) => console.error("Error fetching posts:", err));
