@@ -1,12 +1,13 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import API_BASE from "../apiConfig";
 
 function PostPage() {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/posts/${slug}`)
+    fetch(`${API_BASE}/api/posts/${slug}`)
       .then((res) => res.json())
       .then((data) => setPost(data))
       .catch((err) => console.error("Error fetching post:", err));
