@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import TopToolsSection from "./components/TopToolSection";
+import TopToolsSection from "./components/TopToolsSection"; // ← import
 import "./App.css";
 
 function App() {
