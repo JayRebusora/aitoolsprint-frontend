@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import TopToolsSection from "./components/TopToolSection";
 import "./App.css";
 
 function App() {
@@ -10,14 +11,8 @@ function App() {
       <main className="page-main">
         <Hero />
 
-        {/* Placeholder for next sections */}
-        <section style={{ marginTop: "3rem" }}>
-          <h2>Coming Soon: Top AI Tools section</h2>
-          <p>
-            This will show cards for your best recommended AI tools with ratings
-            and affiliate links.
-          </p>
-        </section>
+        {/* REAL Top AI Tools section */}
+        <TopToolsSection />
       </main>
     </>
   );
