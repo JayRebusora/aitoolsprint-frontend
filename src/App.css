@@ -186,3 +186,57 @@
     padding-inline: 1rem;
   }
 }
+/* HEADER */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.header-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-logo {
+  width: 32px;      /* <<< ito ang magpapaliit sa logo */
+  height: 32px;
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+/* Nav */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav a {
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: #475569;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.nav a:hover {
+  color: #2563eb;
+  transform: translateY(-1px);
+}
