@@ -1,25 +1,23 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage.jsx";
-import PostPage from "./pages/PostPage.jsx";
+import React from "react";
+import Header from "./components/Header";
+import "./App.css";
 
 function App() {
   return (
-    <Router>
-      <div className="min-h-screen bg-gray-100">
-        <header className="bg-white shadow">
-          <div className="max-w-4xl mx-auto px-4 py-4">
-            <h1 className="text-3xl font-bold text-center">AIToolsPrint — Your Guide to the Best AI Tools in 2025</h1>
-          </div>
-        </header>
+    <>
+      <Header />
 
-        <main className="max-w-4xl mx-auto px-4 py-8">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/post/:slug" element={<PostPage />} />
-          </Routes>
-        </main>
-      </div>
-    </Router>
+      {/* Temporary content para lang may makita sa ilalim */}
+      <main className="page-main">
+        <section className="hero">
+          <h1>Boost Your Productivity with AI Tools</h1>
+          <p>
+            Discover the best AI tools to enhance your productivity and
+            streamline your workflow.
+          </p>
+        </section>
+      </main>
+    </>
   );
 }
 
