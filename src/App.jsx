@@ -1,19 +1,21 @@
 import React from "react";
 import Header from "./components/Header";
+import Hero from "./components/Hero";
 import "./App.css";
 
 function App() {
   return (
     <>
       <Header />
-
-      {/* Temporary content para lang may makita sa ilalim */}
       <main className="page-main">
-        <section className="hero">
-          <h1>Boost Your Productivity with AI Tools</h1>
+        <Hero />
+
+        {/* Placeholder for next sections */}
+        <section style={{ marginTop: "3rem" }}>
+          <h2>Coming Soon: Top AI Tools section</h2>
           <p>
-            Discover the best AI tools to enhance your productivity and
-            streamline your workflow.
+            This will show cards for your best recommended AI tools with ratings
+            and affiliate links.
           </p>
         </section>
       </main>

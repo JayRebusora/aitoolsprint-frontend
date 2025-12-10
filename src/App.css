@@ -1,80 +1,188 @@
-/* Global reset-ish */
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
-  background: #f8fafc;
-  color: #0f172a;
-}
-
-/* HEADER */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.header-inner {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0.75rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* Brand */
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.brand-logo {
-  width: 32px;
-  height: 32px;
-}
-
-.brand-name {
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: #0f172a;
-}
-
-/* Nav */
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.nav a {
-  font-size: 0.95rem;
-  text-decoration: none;
-  color: #475569;
-  transition: color 0.15s ease, transform 0.15s ease;
-}
-
-.nav a:hover {
-  color: #2563eb;
-  transform: translateY(-1px);
-}
-
-/* Simple hero for now */
+/* PAGE LAYOUT */
 .page-main {
   max-width: 1120px;
   margin: 0 auto;
   padding: 2rem 1.5rem 4rem;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
+/* HERO SECTION */
+.hero {
+  padding: 2.5rem 0 1rem;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+
+/* Left side */
+.hero-text h1 {
+  font-size: clamp(2.2rem, 3vw, 3rem);
+  line-height: 1.1;
+  margin: 0.75rem 0 0.75rem;
+}
+
+.hero-text p {
+  max-width: 520px;
+  color: #64748b;
+  margin: 0 0 1.5rem;
+}
+
+.hero-highlight {
+  color: #2563eb;
+}
+
+/* Pill badge */
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+/* Actions */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
   margin-bottom: 0.75rem;
 }
 
-.hero p {
-  max-width: 520px;
+.btn-primary {
+  border: none;
+  outline: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.3);
+  opacity: 0.97;
+}
+
+.btn-ghost {
+  border-radius: 999px;
+  padding: 0.55rem 1.3rem;
+  border: 1px solid #cbd5f5;
+  background: #ffffff;
+  color: #334155;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease, transform 0.12s ease;
+}
+
+.btn-ghost:hover {
+  background: #eff4ff;
+  color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.hero-meta {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+/* Right side card */
+.hero-card {
+  border-radius: 1.25rem;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+.hero-card-header {
+  display: flex;
+  gap: 0.35rem;
+  padding: 0.4rem 0.8rem;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.hero-card-header .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: #cbd5f5;
+}
+
+.hero-card-body {
+  padding: 1.25rem 1.4rem 1.4rem;
+}
+
+.hero-card-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  margin-bottom: 0.25rem;
+}
+
+.hero-card h2 {
+  font-size: 1.25rem;
+  margin: 0 0 0.35rem;
+}
+
+.hero-card-desc {
+  font-size: 0.9rem;
   color: #64748b;
+  margin-bottom: 0.85rem;
+}
+
+.hero-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.hero-card-list li + li {
+  margin-top: 0.25rem;
+}
+
+.btn-secondary {
+  border: none;
+  outline: none;
+  padding: 0.5rem 1.1rem;
+  border-radius: 0.75rem;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.12s ease, transform 0.12s ease;
+}
+
+.btn-secondary:hover {
+  background: #020617;
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-card {
+    order: -1;
+  }
+
+  .page-main {
+    padding-inline: 1rem;
+  }
 }
