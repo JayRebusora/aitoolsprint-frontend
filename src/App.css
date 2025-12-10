@@ -240,3 +240,75 @@
   color: #2563eb;
   transform: translateY(-1px);
 }
+.top-tools {
+  max-width: 1100px;
+  margin: 4rem auto 6rem;
+}
+
+.top-tools-header h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.top-tools-header p {
+  color: #556;
+  max-width: 560px;
+}
+
+.top-tools-grid {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.tool-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.4rem 1.5rem;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.tool-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.18rem 0.6rem;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #4f46e5;
+  margin-bottom: 0.6rem;
+}
+
+.tool-category {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 0.3rem;
+}
+
+.tool-desc {
+  font-size: 0.9rem;
+  color: #334155;
+  margin-bottom: 0.8rem;
+}
+
+.tool-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #475569;
+  margin-bottom: 0.9rem;
+}
+
+.btn-outline {
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid #0f172a;
+  background: #0f172a;
+  color: #fff;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  opacity: 0.9;
+}

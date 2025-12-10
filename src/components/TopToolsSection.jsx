@@ -44,23 +44,22 @@ function TopToolsSection() {
           {tools.map((tool) => (
             <article key={tool._id} className="tool-card">
               <div className="tool-tag">{tool.tag}</div>
+
               <h3>{tool.name}</h3>
               <p className="tool-category">{tool.category}</p>
               <p className="tool-desc">{tool.description}</p>
+
               <div className="tool-meta">
-                <span>⭐ {tool.rating}/5 rating</span>
+                <span>⭐ {tool.rating.toFixed ? tool.rating.toFixed(1) : tool.rating}/5 rating</span>
                 <span>{tool.price}</span>
               </div>
+
               <button
                 className="btn-outline"
-                onClick={() => {
-                  if (tool.affiliateUrl) {
-                    window.open(tool.affiliateUrl, "_blank", "noopener");
-                  }
-                }}
-              >
+                    onClick={() => window.open(tool.affiliateUrl, "_blank")}
+                >
                 Read full review
-              </button>
+                </button>
             </article>
           ))}
         </div>
