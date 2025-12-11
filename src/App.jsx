@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import TopToolsSection from "./components/TopToolsSection"; // ← import
 import "./App.css";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
         {/* REAL Top AI Tools section */}
         <TopToolsSection />
       </main>
+       {/* Footer at the bottom */}
+      <Footer />
     </>
   );
 }
