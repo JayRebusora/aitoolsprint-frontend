@@ -195,6 +195,12 @@
   border-bottom: 1px solid #e2e8f0;
 }
 
+.nav .nav-link-active {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
 .header-inner {
   max-width: 1120px;
   margin: 0 auto;

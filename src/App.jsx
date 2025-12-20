@@ -1,3 +1,4 @@
+// src/App.jsx
 import React, { useEffect, useMemo, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
@@ -10,6 +11,10 @@ import CategoriesSection from "./components/CategoriesSection";
 import TestimonialsSection from "./components/TestimonialsSection";
 import FinalCTASection from "./components/FinalCTASection";
 import Footer from "./components/Footer";
+
+// ✅ NEW pages
+import Categories from "./pages/Categories";
+import Services from "./pages/Services";
 
 import AffiliateDisclosure from "./components/AffiliateDisclosure";
 import PrivacyPolicy from "./components/PrivacyPolicy";
@@ -117,7 +122,14 @@ export default function App() {
       <Header />
 
       <Routes>
+        {/* ✅ Main */}
         <Route path="/" element={<HomePage />} />
+
+        {/* ✅ NEW: /services and /categories */}
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/services" element={<Services />} />
+
+        {/* ✅ Existing pages */}
         <Route path="/affiliate-disclosure" element={<AffiliateDisclosure />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
