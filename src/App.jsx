@@ -12,6 +12,10 @@ import TestimonialsSection from "./components/TestimonialsSection";
 import FinalCTASection from "./components/FinalCTASection";
 import Footer from "./components/Footer";
 
+// ✅ SEO + Schema helpers
+import Seo from "./components/Seo";
+import Schema from "./components/Schema";
+
 // ✅ NEW pages
 import Categories from "./pages/Categories";
 import Services from "./pages/Services";
@@ -85,6 +89,20 @@ function HomePage() {
 
   return (
     <main className="page-main">
+      {/* ✅ Canonical + SEO for HOME */}
+      <Seo
+        title="AI Tools Sprint – Discover the Best AI Tools"
+        description="Discover the best AI tools with honest reviews, comparisons, and tutorials. Find the right AI tool faster with AI Tools Sprint."
+        canonicalPath="/"
+      />
+
+      {/* ✅ Schema for HOME */}
+      <Schema
+        pageType="WebPage"
+        name="AI Tools Sprint – Discover the Best AI Tools"
+        description="Discover the best AI tools with honest reviews, comparisons, and tutorials."
+      />
+
       <Hero featuredTool={featuredTool} />
 
       {loading ? (
