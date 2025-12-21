@@ -30,7 +30,7 @@ function Header() {
               isActive ? "nav-link nav-link-active" : "nav-link"
             }
           >
-            Categories ✅ v3
+            Categories
           </NavLink>
 
           <NavLink
