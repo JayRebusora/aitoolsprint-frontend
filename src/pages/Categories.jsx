@@ -1,4 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
+
+import Seo from "../components/Seo";
+import Schema from "../components/Schema";
+
 import SearchFiltersBar, { normalize } from "../components/SearchFiltersBar";
 import CategoriesSection from "../components/CategoriesSection";
 import TopToolsSection from "../components/TopToolsSection";
@@ -61,21 +65,25 @@ export default function Categories() {
 
   return (
     <main className="page-main">
-      {/* ✅ React 19 native metadata */}
-      <title>AI Tool Categories | AI Tools Sprint</title>
-      <meta
-        name="description"
-        content="Explore AI tool categories and discover the best tools for productivity, writing, design, automation, and more."
+      {/* ✅ SEO */}
+      <Seo
+        title="AI Tool Categories | AI Tools Sprint"
+        description="Explore AI tool categories and discover the best tools for productivity, writing, design, automation, and more."
+        canonicalPath="/categories"
+      />
+
+      {/* ✅ Schema */}
+      <Schema
+        pageType="CollectionPage"
+        name="AI Tool Categories | AI Tools Sprint"
+        description="Explore AI tool categories and discover the best tools for your workflow."
       />
 
       {/* Page header */}
       <div className="mx-auto max-w-6xl px-4 pt-10 pb-4">
-        <h1 className="text-3xl font-bold text-slate-900">
-          AI Tool Categories
-        </h1>
+        <h1 className="text-3xl font-bold text-slate-900">AI Tool Categories</h1>
         <p className="mt-2 text-slate-600">
-          Browse AI tools by category and find the right solution for your
-          workflow.
+          Browse AI tools by category and find what fits your workflow.
         </p>
       </div>
 
@@ -84,9 +92,7 @@ export default function Categories() {
           Loading categories...
         </p>
       ) : error ? (
-        <p className="mx-auto max-w-6xl px-4 py-6 text-red-600">
-          {error}
-        </p>
+        <p className="mx-auto max-w-6xl px-4 py-6 text-red-600">{error}</p>
       ) : (
         <>
           {/* Filters */}
@@ -99,7 +105,7 @@ export default function Categories() {
           {/* Category cards */}
           <CategoriesSection tools={tools} setFilters={setFilters} />
 
-          {/* Tools list under selected category */}
+          {/* Tools list */}
           <TopToolsSection tools={filteredTools} />
         </>
       )}
