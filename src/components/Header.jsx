@@ -18,7 +18,7 @@ function Header() {
           <a href="/#reviews">Reviews</a>
           <a href="/#comparisons">Comparisons</a>
           <a href="/#tutorials">Tutorials</a>
-          <a href="/#categories">Categories</a>
+          <a href="/categories">Categories</a>
 
           {/* NEW: Services page link with active state */}
           <NavLink
