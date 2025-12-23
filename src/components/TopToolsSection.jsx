@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function TopToolsSection({ tools = [] }) {
   // Optional: show featured tools first
@@ -27,10 +28,11 @@ export default function TopToolsSection({ tools = [] }) {
         <div className="grid gap-5 md:grid-cols-3">
           {sortedTools.map((tool) => {
             const isPick = !!tool.isFeatured;
+            const key = tool._id || tool.slug;
 
             return (
               <div
-                key={tool._id || tool.slug}
+                key={key}
                 className={`relative rounded-2xl border bg-white p-5 shadow-sm ${
                   isPick ? "border-blue-300 ring-1 ring-blue-200" : "border-slate-200"
                 }`}
@@ -46,9 +48,20 @@ export default function TopToolsSection({ tools = [] }) {
 
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-900">
-                      {tool.name}
-                    </h3>
+                    {/* ✅ Make title clickable to tool page */}
+                    {tool.slug ? (
+                      <Link
+                        to={`/tools/${tool.slug}`}
+                        className="text-lg font-semibold text-slate-900 hover:underline"
+                      >
+                        {tool.name}
+                      </Link>
+                    ) : (
+                      <h3 className="text-lg font-semibold text-slate-900">
+                        {tool.name}
+                      </h3>
+                    )}
+
                     <p className="mt-1 text-sm text-slate-600 line-clamp-3">
                       {tool.description || "No description yet."}
                     </p>
@@ -81,6 +94,7 @@ export default function TopToolsSection({ tools = [] }) {
 
                 {/* Buttons */}
                 <div className="mt-5 flex gap-2">
+                  {/* External: affiliate link */}
                   <a
                     href={tool.affiliateUrl || "#"}
                     target="_blank"
@@ -97,12 +111,19 @@ export default function TopToolsSection({ tools = [] }) {
                     Visit Tool →
                   </a>
 
-                  <a
-                    href={tool.slug ? `/reviews/${tool.slug}` : "#"}
-                    className="inline-flex w-full items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
-                  >
-                    Read Review
-                  </a>
+                  {/* ✅ Internal: review page */}
+                  {tool.slug ? (
+                    <Link
+                      to={`/tools/${tool.slug}`}
+                      className="inline-flex w-full items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                    >
+                      Read Review
+                    </Link>
+                  ) : (
+                    <span className="inline-flex w-full items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-400">
+                      Read Review
+                    </span>
+                  )}
                 </div>
 
                 {/* Small note if no affiliate url (helps you during setup) */}

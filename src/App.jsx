@@ -16,9 +16,10 @@ import Footer from "./components/Footer";
 import Seo from "./components/Seo";
 import Schema from "./components/Schema";
 
-// ✅ NEW pages
+// ✅ Pages
 import Categories from "./pages/Categories";
 import Services from "./pages/Services";
+import ToolPage from "./pages/tools/ToolPage";
 
 import AffiliateDisclosure from "./components/AffiliateDisclosure";
 import PrivacyPolicy from "./components/PrivacyPolicy";
@@ -143,11 +144,14 @@ export default function App() {
         {/* ✅ Main */}
         <Route path="/" element={<HomePage />} />
 
-        {/* ✅ NEW: /services and /categories */}
+        {/* ✅ Tools (first tool review page) */}
+        <Route path="/tools/:slug" element={<ToolPage />} />
+
+        {/* ✅ Pages */}
         <Route path="/categories" element={<Categories />} />
         <Route path="/services" element={<Services />} />
 
-        {/* ✅ Existing pages */}
+        {/* ✅ Legal / Contact */}
         <Route path="/affiliate-disclosure" element={<AffiliateDisclosure />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />

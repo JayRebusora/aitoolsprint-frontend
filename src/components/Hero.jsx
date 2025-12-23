@@ -125,7 +125,7 @@ export default function Hero({ featuredTool }) {
               </>
             ) : (
               <div className="mt-4 rounded-2xl border border-dashed border-slate-200 bg-white p-5 text-slate-600">
-                No featured tool yet. Set <b>isFeatured: true</b> on one tool in your database.
+                No featured tool yet. 
               </div>
             )}
           </div>
