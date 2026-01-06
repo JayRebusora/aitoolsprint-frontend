@@ -9,6 +9,25 @@ export default function TopToolsSection({ tools = [] }) {
     return bf - af;
   });
 
+  
+  const trackClick = async (tool) => {
+    try {
+      await fetch("/api/clicks", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          toolId: tool._id || tool.slug,
+          name: tool.name,
+          page: "home",
+          ts: Date.now(),
+        }),
+      });
+    } catch (e) {
+      
+      console.warn("Click tracking failed:", e);
+    }
+  };
+
   return (
     <section className="mx-auto max-w-6xl px-4 py-10" id="reviews">
       <div className="mb-6">
@@ -67,7 +86,7 @@ export default function TopToolsSection({ tools = [] }) {
                     </p>
                   </div>
 
-                  {/* Placeholder for logo (optional later) */}
+                  {/* Placeholder for logo */}
                   <div className="h-12 w-12 rounded-xl bg-slate-100 shadow-inner" />
                 </div>
 
@@ -98,14 +117,18 @@ export default function TopToolsSection({ tools = [] }) {
                   <a
                     href={tool.affiliateUrl || "#"}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="nofollow sponsored noopener noreferrer"
                     className={`inline-flex w-full items-center justify-center rounded-full px-4 py-2 text-sm font-medium text-white ${
                       tool.affiliateUrl
                         ? "bg-blue-600 hover:bg-blue-700"
                         : "bg-slate-300 cursor-not-allowed"
                     }`}
                     onClick={(e) => {
-                      if (!tool.affiliateUrl) e.preventDefault();
+                      if (!tool.affiliateUrl) {
+                        e.preventDefault();
+                      } else {
+                        trackClick(tool);
+                      }
                     }}
                   >
                     Visit Tool →
@@ -126,12 +149,16 @@ export default function TopToolsSection({ tools = [] }) {
                   )}
                 </div>
 
-                {/* Small note if no affiliate url (helps you during setup) */}
-                {!tool.affiliateUrl ? (
+                {/* Micro-disclosure*/}
+                {tool.affiliateUrl ? (
+                  <p className="mt-3 text-xs text-slate-500">
+                    Some links are affiliate links. We may earn a commission at no extra cost to you.
+                  </p>
+                ) : (
                   <p className="mt-3 text-xs text-slate-400">
                     Add affiliateUrl to enable the button.
                   </p>
-                ) : null}
+                )}
               </div>
             );
           })}
