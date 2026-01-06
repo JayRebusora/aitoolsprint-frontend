@@ -21,7 +21,6 @@ export default function ComparisonTable({ tools = [] }) {
   }, [tools]);
 
   return (
-    // ✅ IMPORTANT: id must match Header href="/#comparisons"
     <section className="mx-auto max-w-6xl px-4 pb-12" id="comparisons">
       <div className="mb-6">
         <h2 className="text-2xl font-semibold text-slate-900">
