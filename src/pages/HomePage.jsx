@@ -4,7 +4,7 @@ import API_BASE from "../apiConfig";
 
 import Seo from "../components/Seo";
 import Schema from "../components/Schema";
-import TutorialsSection from "../components/TutorialsSection"; // ✅ ADD
+import TutorialsSection from "../components/TutorialsSection";
 
 function HomePage() {
   const [posts, setPosts] = useState([]);
