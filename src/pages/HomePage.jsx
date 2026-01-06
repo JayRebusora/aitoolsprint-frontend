@@ -4,6 +4,7 @@ import API_BASE from "../apiConfig";
 
 import Seo from "../components/Seo";
 import Schema from "../components/Schema";
+import TutorialsSection from "../components/TutorialsSection"; // ✅ ADD
 
 function HomePage() {
   const [posts, setPosts] = useState([]);
@@ -24,19 +25,22 @@ function HomePage() {
 
   return (
     <main className="page-main">
-      {/*SEO */}
+      {/* SEO */}
       <Seo
         title="AI Tools Sprint – Discover the Best AI Tools"
         description="Discover the best AI tools with honest reviews, comparisons, and tutorials. Find the right AI tool faster with AI Tools Sprint."
         canonicalPath="/"
       />
 
-      {/*Schema */}
+      {/* Schema */}
       <Schema
         pageType="WebPage"
         name="AI Tools Sprint – Discover the Best AI Tools"
         description="Discover the best AI tools with honest reviews, comparisons, and tutorials."
       />
+
+      {/* ✅ This is what the header /#tutorials will scroll to */}
+      <TutorialsSection />
 
       {loading ? (
         <p className="text-center text-gray-500">Loading posts…</p>
