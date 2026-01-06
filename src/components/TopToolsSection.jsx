@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function TopToolsSection({ tools = [] }) {
-  // show featured tools first
+  
   const sortedTools = [...tools].sort((a, b) => {
     const af = a.isFeatured ? 1 : 0;
     const bf = b.isFeatured ? 1 : 0;
@@ -35,7 +35,7 @@ export default function TopToolsSection({ tools = [] }) {
           Top AI Tools This Month
         </h2>
         <p className="mt-1 text-slate-600">
-          Curated tools we actually recommend for creators, marketers, and founders.
+          Curated tools we recommend for creators, marketers, and founders.
         </p>
       </div>
 
@@ -49,11 +49,20 @@ export default function TopToolsSection({ tools = [] }) {
             const isPick = !!tool.isFeatured;
             const key = tool._id || tool.slug;
 
+            const rating =
+              tool.rating !== undefined && tool.rating !== null && tool.rating !== ""
+                ? Number(tool.rating)
+                : null;
+
+            const hasAffiliate = !!tool.affiliateUrl;
+
             return (
               <div
                 key={key}
                 className={`relative rounded-2xl border bg-white p-5 shadow-sm ${
-                  isPick ? "border-blue-300 ring-1 ring-blue-200" : "border-slate-200"
+                  isPick
+                    ? "border-blue-300 ring-1 ring-blue-200"
+                    : "border-slate-200"
                 }`}
               >
                 {/* Badge */}
@@ -67,7 +76,7 @@ export default function TopToolsSection({ tools = [] }) {
 
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    {/* Make title clickable to tool page */}
+                    {/* Title */}
                     {tool.slug ? (
                       <Link
                         to={`/tools/${tool.slug}`}
@@ -90,23 +99,27 @@ export default function TopToolsSection({ tools = [] }) {
                   <div className="h-12 w-12 rounded-xl bg-slate-100 shadow-inner" />
                 </div>
 
-                {/* Meta */}
-                <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
-                  {tool.rating ? (
-                    <span className="rounded-full bg-amber-50 px-3 py-1 font-medium text-amber-700">
-                      ⭐ {Number(tool.rating).toFixed(1)}
-                    </span>
-                  ) : null}
+                {/* ✅ Meta (fixed alignment across cards) */}
+                <div className="mt-4 flex flex-col gap-2 text-xs">
+                  {/* Row 1: Rating + Price (fixed height so next row aligns) */}
+                  <div className="flex min-h-[28px] items-center gap-2">
+                    {rating !== null && Number.isFinite(rating) ? (
+                      <span className="rounded-full bg-amber-50 px-3 py-1 font-medium text-amber-700">
+                        ⭐ {rating.toFixed(1)}
+                      </span>
+                    ) : null}
 
-                  {tool.price ? (
-                    <span className="rounded-full bg-slate-100 px-3 py-1 font-medium text-slate-700">
-                      {tool.price}
-                    </span>
-                  ) : null}
+                    {tool.price ? (
+                      <span className="rounded-full bg-slate-100 px-3 py-1 font-medium text-slate-700">
+                        {tool.price}
+                      </span>
+                    ) : null}
+                  </div>
 
+                  {/* Row 2: Best for */}
                   {tool.tag ? (
-                    <span className="rounded-full bg-blue-50 px-3 py-1 font-medium text-blue-700">
-                      {tool.tag}
+                    <span className="inline-block w-fit rounded-full bg-blue-50 px-3 py-1 font-medium text-blue-700">
+                      Best for {tool.tag}
                     </span>
                   ) : null}
                 </div>
@@ -115,16 +128,16 @@ export default function TopToolsSection({ tools = [] }) {
                 <div className="mt-5 flex gap-2">
                   {/* External: affiliate link */}
                   <a
-                    href={tool.affiliateUrl || "#"}
+                    href={hasAffiliate ? tool.affiliateUrl : "#"}
                     target="_blank"
                     rel="nofollow sponsored noopener noreferrer"
                     className={`inline-flex w-full items-center justify-center rounded-full px-4 py-2 text-sm font-medium text-white ${
-                      tool.affiliateUrl
+                      hasAffiliate
                         ? "bg-blue-600 hover:bg-blue-700"
                         : "bg-slate-300 cursor-not-allowed"
                     }`}
                     onClick={(e) => {
-                      if (!tool.affiliateUrl) {
+                      if (!hasAffiliate) {
                         e.preventDefault();
                       } else {
                         trackClick(tool);
@@ -149,10 +162,11 @@ export default function TopToolsSection({ tools = [] }) {
                   )}
                 </div>
 
-                {/* Micro-disclosure*/}
-                {tool.affiliateUrl ? (
+                {/* Micro-disclosure */}
+                {hasAffiliate ? (
                   <p className="mt-3 text-xs text-slate-500">
-                    Some links are affiliate links. We may earn a commission at no extra cost to you.
+                    Some links are affiliate links. We may earn a commission at
+                    no extra cost to you.
                   </p>
                 ) : (
                   <p className="mt-3 text-xs text-slate-400">
