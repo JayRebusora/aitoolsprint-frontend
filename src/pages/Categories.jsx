@@ -65,14 +65,14 @@ export default function Categories() {
 
   return (
     <main className="page-main">
-      {/* ✅ SEO */}
+      {/* SEO */}
       <Seo
         title="AI Tool Categories | AI Tools Sprint"
         description="Explore AI tool categories and discover the best tools for productivity, writing, design, automation, and more."
         canonicalPath="/categories"
       />
 
-      {/* ✅ Schema */}
+      {/* Schema */}
       <Schema
         pageType="CollectionPage"
         name="AI Tool Categories | AI Tools Sprint"

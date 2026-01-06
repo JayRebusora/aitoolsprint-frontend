@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function TopToolsSection({ tools = [] }) {
-  // Optional: show featured tools first
+  // show featured tools first
   const sortedTools = [...tools].sort((a, b) => {
     const af = a.isFeatured ? 1 : 0;
     const bf = b.isFeatured ? 1 : 0;
@@ -48,7 +48,7 @@ export default function TopToolsSection({ tools = [] }) {
 
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    {/* ✅ Make title clickable to tool page */}
+                    {/* Make title clickable to tool page */}
                     {tool.slug ? (
                       <Link
                         to={`/tools/${tool.slug}`}
@@ -111,7 +111,7 @@ export default function TopToolsSection({ tools = [] }) {
                     Visit Tool →
                   </a>
 
-                  {/* ✅ Internal: review page */}
+                  {/* Internal: review page */}
                   {tool.slug ? (
                     <Link
                       to={`/tools/${tool.slug}`}

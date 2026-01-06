@@ -1,4 +1,4 @@
-// src/App.jsx
+// App.jsx
 import React, { useEffect, useMemo, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
@@ -12,11 +12,11 @@ import TestimonialsSection from "./components/TestimonialsSection";
 import FinalCTASection from "./components/FinalCTASection";
 import Footer from "./components/Footer";
 
-// ✅ SEO + Schema helpers
+// SEO 
 import Seo from "./components/Seo";
 import Schema from "./components/Schema";
 
-// ✅ Pages
+// Pages
 import Categories from "./pages/Categories";
 import Services from "./pages/Services";
 import ToolPage from "./pages/tools/ToolPage";
@@ -90,14 +90,14 @@ function HomePage() {
 
   return (
     <main className="page-main">
-      {/* ✅ Canonical + SEO for HOME */}
+      {/*Canonical*/}
       <Seo
         title="AI Tools Sprint – Discover the Best AI Tools"
         description="Discover the best AI tools with honest reviews, comparisons, and tutorials. Find the right AI tool faster with AI Tools Sprint."
         canonicalPath="/"
       />
 
-      {/* ✅ Schema for HOME */}
+      {/*Schema for HOME */}
       <Schema
         pageType="WebPage"
         name="AI Tools Sprint – Discover the Best AI Tools"
@@ -141,17 +141,17 @@ export default function App() {
       <Header />
 
       <Routes>
-        {/* ✅ Main */}
+        {/* Main */}
         <Route path="/" element={<HomePage />} />
 
-        {/* ✅ Tools (first tool review page) */}
+        {/*Tools (first tool review page) */}
         <Route path="/tools/:slug" element={<ToolPage />} />
 
-        {/* ✅ Pages */}
+        {/*Pages */}
         <Route path="/categories" element={<Categories />} />
         <Route path="/services" element={<Services />} />
 
-        {/* ✅ Legal / Contact */}
+        {/*Legal / Contact */}
         <Route path="/affiliate-disclosure" element={<AffiliateDisclosure />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />

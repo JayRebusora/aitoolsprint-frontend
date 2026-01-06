@@ -32,9 +32,6 @@ export default function Seo({ title, description, canonicalPath }) {
     if (title) document.title = title;
 
     if (description) upsertMeta("description", description);
-
-    // If canonicalPath is provided, use it.
-    // Otherwise canonical defaults to current path.
     const path = canonicalPath ?? location.pathname;
     const canonicalUrl = `${SITE_URL}${path === "/" ? "" : path}`;
 

@@ -24,14 +24,14 @@ function HomePage() {
 
   return (
     <main className="page-main">
-      {/* ✅ SEO */}
+      {/*SEO */}
       <Seo
         title="AI Tools Sprint – Discover the Best AI Tools"
         description="Discover the best AI tools with honest reviews, comparisons, and tutorials. Find the right AI tool faster with AI Tools Sprint."
         canonicalPath="/"
       />
 
-      {/* ✅ Schema */}
+      {/*Schema */}
       <Schema
         pageType="WebPage"
         name="AI Tools Sprint – Discover the Best AI Tools"

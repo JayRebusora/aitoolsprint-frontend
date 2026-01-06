@@ -6,7 +6,6 @@ export default function Contact() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // For now: demo only. Later we can connect to backend/email.
     setSent(true);
   };
 

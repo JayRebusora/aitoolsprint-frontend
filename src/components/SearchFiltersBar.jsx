@@ -16,7 +16,6 @@ export default function SearchFiltersBar({ tools = [], filters, setFilters }) {
   }, [tools]);
 
   const useCases = useMemo(() => {
-    // Using "tag" as Use Case (as per your schema)
     const set = new Set(tools.map((t) => t.tag).filter(Boolean));
     return ["All", ...Array.from(set).sort()];
   }, [tools]);
@@ -108,7 +107,7 @@ export default function SearchFiltersBar({ tools = [], filters, setFilters }) {
           </div>
         </div>
 
-        {/* Optional small hint text under bar (looks premium) */}
+        {/* text under bar */}
         <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-slate-500">
           <span className="rounded-full bg-slate-100 px-2 py-1">
             Tip: Search checks name, description, and tag
@@ -122,5 +121,5 @@ export default function SearchFiltersBar({ tools = [], filters, setFilters }) {
   );
 }
 
-// Export normalize if you want to reuse it elsewhere
+
 export { normalize };
