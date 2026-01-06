@@ -139,8 +139,7 @@ export default function ComparisonTable({ tools = [] }) {
         </div>
 
         <div className="border-t border-slate-200 bg-slate-50 px-5 py-3 text-xs text-slate-500">
-          Tip: Add <b>affiliateUrl</b> in your database to enable the “Visit”
-          button.
+          
         </div>
       </div>
     </section>
